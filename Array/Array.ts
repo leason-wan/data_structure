@@ -1,4 +1,4 @@
-import { State, TempState, ArrayType, StateWrapper } from './index.d';
+import { State, TempState, ArrayType } from './Array.d';
 
 export function Array(length: number) {
   const maxLength = length * 2;
@@ -9,10 +9,7 @@ export function Array(length: number) {
   for(let i = 0; i < maxLength; i++) {
     state[i] = undefined;
   }
-  const stateWrapper: StateWrapper = {
-    state
-  }
-  return bindMethods(stateWrapper);
+  return bindMethods(state);
 }
 
 function get(index: number, array: State): any {
@@ -44,29 +41,10 @@ function insert(array: State, index: number, value: any): void {
 
 function del(array: State, index: number): void {
   array[index] = undefined;
+
 }
 
-function concat(state_one: State, state_two: State): State {
-  const length = state_one.length + state_two.length;
-  const maxLength = length * 2;
-  let state: State = {
-    length,
-    maxLength
-  }
-  for(let i = 0; i < state_one.length; i++) {
-    state[i] = state_one[i];
-  }
-  for(let i = 0; i < state_two.length; i++) {
-    state[i + state_one.length] = state_two[i];
-  }
-  for(let i = state_one.length + state_two.length; i < state.maxLength; i++) {
-    state[i] = undefined;
-  }
-  return state;
-}
-
-function bindMethods(stateWrapper: StateWrapper): ArrayType {
-  const state = stateWrapper.state;
+function bindMethods(state: State): ArrayType {
   const _get = (index: number): any => {
     return get(index, state);
   }
@@ -82,17 +60,12 @@ function bindMethods(stateWrapper: StateWrapper): ArrayType {
   const _del = (index: number): void => {
     del(state, index);
   }
-  const _concat = (array: ArrayType): void => {
-    stateWrapper.state = concat(state, array.state);
-  }
   return {
     state: state,
-    stateWrapper,
     get: _get,
     set: _set,
     push: _push,
     insert: _insert,
     del: _del,
-    concat: _concat,
   }
 }
