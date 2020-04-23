@@ -13,4 +13,5 @@
 
 ## TODO
 
-- [ ] 映像函数实现元素访问
+- [ ] 映像函数实现元素访问(现在基于js的Object实现)
+- [ ] more api，such as del, insert, push and so on. want get some idea from some language.
