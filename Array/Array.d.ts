@@ -3,8 +3,13 @@ export interface State {
   length: number
 }
 
-export interface ArrayType {
-  state: State
+export interface ArrayApis {
+  [key: string]: Function
   get: (index: number) => any
   set: (index: number, value: any) => void
+  insert: (index: number, value: any) => void
+  del: (index: number) => void
+  toString: () => string
 }
+
+export type ArrayApi = keyof ArrayApis;

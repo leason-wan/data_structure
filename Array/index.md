@@ -9,9 +9,9 @@
 
 - 连续的内存空间
 - 计算各元素位置的时间相同，存取任意元素时间都是单位O(1)
-- 删除中间一项时，后置元素会向前补位
+- 删除插入时，后置元素会向前补位
 
 ## TODO
 
 - [ ] 映像函数实现元素访问(现在基于js的Object实现)
-- [ ] more api，such as del, insert, push and so on. want get some idea from some language.
+- [ ] more api，such as push, slice and so on. need get some idea from some program language.
