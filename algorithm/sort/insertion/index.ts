@@ -10,6 +10,7 @@ function sort(arr: number[]) {
 }
 
 function insert(sorted: number[], max_index: number, value: number) {
+  // for循环  
   // let i = max_index;
   // for(i; i >= 0; i--) {
   //   if (sorted[i] > value) {
@@ -18,11 +19,21 @@ function insert(sorted: number[], max_index: number, value: number) {
   //     break;
   //   }
   // }
+
+  // while循环
   // sorted[i + 1] = value;
-  let p = max_index;
-  while (sorted[p] > value && p >=0) {
-    sorted[p + 1] = sorted[p];
-    p--;
+  // let p = max_index;
+  // while (sorted[p] > value && p >=0) {
+  //   sorted[p + 1] = sorted[p];
+  //   p--;
+  // }
+  // sorted[p + 1] = value;
+
+  // 尾调递归
+  if (sorted[max_index] > value && max_index >= 0) {
+    sorted[max_index + 1] = sorted[max_index];
+    insert(sorted, max_index - 1, value);
+  } else {
+    sorted[max_index + 1] = value;
   }
-  sorted[p + 1] = value;
 }
