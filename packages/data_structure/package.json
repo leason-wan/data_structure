@@ -1,0 +1,11 @@
+{
+  "name": "@leason/data_structure",
+  "version": "0.0.1",
+  "main": "dist/data_structure.cjs.js",
+  "module": "dist/data_structure.esm.js",
+  "types": "types/data_structure.d.ts",
+  "license": "MIT",
+  "buildOptions": {
+    "formats": ["esm", "cjs", "global"]
+  }
+}

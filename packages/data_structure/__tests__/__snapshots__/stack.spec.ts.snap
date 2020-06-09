@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test stack create stack 1`] = `
+Object {
+  "pop": [Function],
+  "push": [Function],
+  "toString": [Function],
+  "top": [Function],
+}
+`;

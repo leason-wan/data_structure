@@ -1,0 +1,11 @@
+{
+  "name": "@leason/algorithm",
+  "version": "0.0.1",
+  "main": "dist/algorithm.cjs.js",
+  "module": "dist/algorithm.esm.js",
+  "types": "types/algorithm.d.ts",
+  "license": "MIT",
+  "buildOptions": {
+    "formats": ["esm", "cjs", "global"]
+  }
+}
